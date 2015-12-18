@@ -1,0 +1,22 @@
+<h1>Lista de las preguntas disponibles</h1>
+
+<%= link_to 'Nueva pregunta', new_question_path %>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Contenido</th>
+  </tr>
+ 
+  <% @questions.each do |question| %>
+    <tr>
+      <td><%= question.id %></td>
+      <td><%= question.content %></td>
+      <td><%= link_to 'Show', question_path(question) %></td>
+      <td><%= link_to 'Edit', edit_question_path(question) %></td>
+      <td><%= link_to 'Destroy', question_path(question),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
