@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :answers
   end
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   
 
