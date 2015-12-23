@@ -1,7 +1,11 @@
 <%= form_for([@question, @question.answers.build]) do |f| %>
   <p>
-    <%= f.label :respuesta %><br>
+    <%= f.label :respuesta %>
     <%= f.text_field :content %>
+    <%= f.label :Xaxis %>
+    <%= f.number_field :Xaxis %>
+    <%= f.label :Yaxis %>
+    <%= f.number_field :Yaxis %>
   </p>
   <p>
     <%= f.submit %>

@@ -1,0 +1,12 @@
+<h1>Usuarios registrados</h1>
+
+
+
+<% @users.each do |user| %>
+  Id: <%= user.id%> |
+  Email: <%= user.email%> |
+  Nombre: <%= user.name%> |
+  Famoso: <%= user.famous%> |
+  Admin: <%= user.admin%> 
+ 
+<% end %>

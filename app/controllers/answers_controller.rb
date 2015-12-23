@@ -14,9 +14,15 @@ class AnswersController < ApplicationController
     redirect_to question_path(@question)
   end
 
+  def show
+    @question = Question.find(params[:question_id])
+    @answer = @questions.answers.find([:id])
+  end
+
+
   private
     def answer_params
-      params.require(:answer).permit(:content)      
+      params.require(:answer).permit(:content, :Xaxis, :Yaxis)      
     end
 
 end

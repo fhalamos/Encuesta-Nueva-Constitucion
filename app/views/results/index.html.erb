@@ -1,0 +1,40 @@
+<h1> Resultados </h1>
+
+<h2> Mi posicion </h1>
+
+X: <%= current_user.Xposition%> |
+Y: <%= current_user.Yposition%>
+
+<h2> Posición de famosos </h1>
+<% @famousPeople.each do |famous| %>
+  <%= famous.name %>
+  X: <%= famous.Xposition%> |
+  Y: <%= famous.Yposition%>
+<%end%>
+
+<h2> Posición de amigos  (esta malo, ver controlador) </h1>
+<% @friends.each do |friend| %>
+  <%= friend.name %>
+  X: <%= friend.Xposition%> |
+  Y: <%= friend.Yposition%>
+<%end%>
+
+<h2> Resultados por pregunta </h1>
+
+<p>
+<% @questions.each do |question| %>
+  
+  <div>
+    Pregunta: <%= question.content %>
+  </div>
+  
+  <% question.answers.each do |answer| %>
+    <div>
+      <%=answer.content %>
+      Votos de esta respuesta: <%=answer.votes %>
+    </div>
+  <%end%>
+</p>
+
+<%end%>
+

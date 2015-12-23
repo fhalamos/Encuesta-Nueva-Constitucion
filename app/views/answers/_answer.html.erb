@@ -1,7 +1,11 @@
 <p>
-    <%= answer.content %>
+    <%= radio_button_tag(answer.question_id, answer.id) %> <!--hay que sacar las comillas aca-->
+    <%= label_tag(:answer_content, answer.content) %> |
+    X axis: <%= label_tag(:answer_Xaxis, answer.Xaxis) %> |
+    Y axis: <%= label_tag(:answer_Yaxis, answer.Yaxis) %>
+
     <%= link_to 'Destroy answer', [answer.question, answer],
                method: :delete,
                data: { confirm: 'Are you sure?' } %>
 </p>
-  
+

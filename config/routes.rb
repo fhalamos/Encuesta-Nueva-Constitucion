@@ -1,14 +1,23 @@
 Rails.application.routes.draw do
-  get 'questions/index'
+  #get 'questions/index'
+
+  #post 'user_answers/submit_user_answer' => "user_answers#submit_user_answer", :as => "submit_user_answer"
 
   root 'questions#index'
+
+  resources :users
+
+  resources :user_answers
+
+  resources :results
 
   resources :questions do 
     resources :answers
   end
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks"} 
 
+  get '/users/sign_out' => 'devise/sessions#destroy'
   
 
   # The priority is based upon order of creation: first created -> highest priority.
