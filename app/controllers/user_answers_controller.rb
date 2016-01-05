@@ -22,10 +22,14 @@ class UserAnswersController < ApplicationController
       @user_answer.question_id = question.id
       @user_answer.answer_id = answer_id
 
-      #Actualizamos la cantidad de votos en la respuesta asociada
+      #Actualizamos la cantidad de votos en la respuesta y en la pregunta asociada
       @answer = Answer.find(answer_id)
       @answer.votes = @answer.votes + 1
       @answer.save
+
+      @question = Question.find(question.id)
+      @question.votes = @question.votes +1
+      @question.save
       
       if @user_answer.save
         puts "exitooooooooooooo"

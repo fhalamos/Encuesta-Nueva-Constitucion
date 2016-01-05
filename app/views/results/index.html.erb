@@ -28,10 +28,12 @@ Y: <%= current_user.Yposition%>
     Pregunta: <%= question.content %>
   </div>
   
+  <% totalVotesInQuestion=0% >
   <% question.answers.each do |answer| %>
     <div>
       <%=answer.content %>
       Votos de esta respuesta: <%=answer.votes %>
+      Porcentaje: <%=answer.votes / question.votes %>
     </div>
   <%end%>
 </p>
