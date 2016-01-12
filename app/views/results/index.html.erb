@@ -11,8 +11,9 @@ Y: <%= current_user.Yposition%>
   X: <%= famous.Xposition%> |
   Y: <%= famous.Yposition%>
 <%end%>
+Sebastián Piñera X:5 | Y:5
 
-<h2> Posición de amigos  (esta malo, ver controlador) </h1>
+<h2> Posición de amigos </h1>
 <% @friends.each do |friend| %>
   <%= friend.name %>
   X: <%= friend.Xposition%> |
@@ -28,12 +29,11 @@ Y: <%= current_user.Yposition%>
     Pregunta: <%= question.content %>
   </div>
   
-  <% totalVotesInQuestion=0% >
+  
   <% question.answers.each do |answer| %>
     <div>
       <%=answer.content %>
       Votos de esta respuesta: <%=answer.votes %>
-      Porcentaje: <%=answer.votes / question.votes %>
     </div>
   <%end%>
 </p>

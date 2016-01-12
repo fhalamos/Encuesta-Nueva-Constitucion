@@ -28,7 +28,7 @@ class UserAnswersController < ApplicationController
       @answer.save
 
       @question = Question.find(question.id)
-      @question.votes = @question.votes +1
+      #@question.votes = @question.votes +1
       @question.save
       
       if @user_answer.save
