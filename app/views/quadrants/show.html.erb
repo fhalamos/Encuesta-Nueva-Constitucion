@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @quadrant.name %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @quadrant.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @quadrant.description %>
+</p>
+
+<%= link_to 'Edit', edit_quadrant_path(@quadrant) %> |
+<%= link_to 'Back', quadrants_path %>

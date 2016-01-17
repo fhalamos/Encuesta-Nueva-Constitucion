@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Postits</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @postits.each do |postit| %>
+      <tr>
+        <td><%= link_to 'Show', postit %></td>
+        <td><%= link_to 'Edit', edit_postit_path(postit) %></td>
+        <td><%= link_to 'Destroy', postit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Postit', new_postit_path %>
