@@ -12,4 +12,7 @@
 //
 //= require jquery
 //= require angular
-//= require_tree .
+//= require angular-resource
+//= require materialize
+//= require app
+//= require_tree ./angular
