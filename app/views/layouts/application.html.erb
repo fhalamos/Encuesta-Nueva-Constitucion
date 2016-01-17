@@ -11,22 +11,29 @@
   <%= csrf_meta_tags %>
 </head>
 
-<body>
+<body ng-app='encuestaNuevaConstitucion'>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <div class="row">
+    <div class="row">
+      <div class="col s12">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
 
-<p>
-  <% if user_signed_in? %>
-    <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-  <% end %>
-</p>
+        <p>
+          <% if user_signed_in? %>
+          <%= link_to 'Desconectar', destroy_user_session_path, :method => :delete, class: 'btn red' %>
+          <% end %>
+        </p>
+      </div>
+    </div>
 
-<p>
-  <%= link_to('Manejo de usuarios', users_path) %>
-</p>
+    <div class="row">
+      <div class="col s12">
+        <%= yield %>
+      </div>
+    </div>
 
-<%= yield %>
+  </div>
 
 </body>
 
