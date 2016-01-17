@@ -1,0 +1,31 @@
+
+<div class="row poll-container" ng-controller="PollController">
+  <div class="col s12">
+    <div class="row" ng-hide="pollCompleted">
+      <div class="col s8">
+          <div class = "card-panel">
+            <h4>{{ questions[currentQuestionIndex].content }}:</h4>
+            <div ng-repeat="answer in questions[currentQuestionIndex].answers">
+              <p>
+                <input class="blue" name="answer" type="radio" ng-model="$parent.currentAnswerId" id="{{'answer' + answer.id}}" value="{{answer.id}}" />
+                <label for="{{'answer' + answer.id}}">{{ answer.content }}</label>
+              </p>
+            </div>
+            <div class = "progress-bar" ng-style="{width: ( getProgress() + '%' ) }">{{ getProgressFraction() }}</div>
+          </div>
+
+
+          <a ng-click="submitAnswer()" class="waves-effect green waves-green btn submit-btn">Siguiente</a>
+      </div>
+      <div class="col s4">
+        {{ postits[currentQuestionIndex].content }}
+      </div>
+    </div>
+    <div class="row" ng-show="pollCompleted">
+      <div class="col s12">
+        <p>Xaxis: {{results.Xaxis}}</p>
+        <p>Yaxis: {{results.Yaxis}}</p>
+      </div>
+    </div>
+  </div>
+</div>

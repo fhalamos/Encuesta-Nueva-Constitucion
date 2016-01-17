@@ -1,30 +1,30 @@
 Rails.application.routes.draw do
-  #get 'questions/index'
 
-  #post 'user_answers/submit_user_answer' => "user_answers#submit_user_answer", :as => "submit_user_answer"
-
-  root 'questions#index'
-
-  
+  root 'pages#index'
 
   resources :user_answers
-
   resources :results
 
-  resources :questions do 
-    resources :answers
+  scope '/api' do
+    resources :questions do
+      resources :answers
+    end
+    resources :quadrants
+    resources :postits
+
+    post '/poll/answer' => 'poll#answer'
+    get '/poll/answers' => 'poll#answers'
+    get '/poll/results' => 'poll#results'
   end
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks"} 
-
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks"}
   get '/users/sign_out' => 'devise/sessions#destroy'
-  
   resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
