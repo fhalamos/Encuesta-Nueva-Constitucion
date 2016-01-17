@@ -5,4 +5,6 @@
 
 asset 'angular'
 asset 'jquery'
+
+asset 'materialize'
 asset 'angular-resource'
