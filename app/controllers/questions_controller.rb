@@ -2,11 +2,12 @@ class QuestionsController < ApplicationController
   before_action :authenticate_user!
 
   def show
-    @question = Question.find(params[:id])
+    @question = Question.find(params[:id]).order('number ASC')
   end
 
   def index
-  	@questions = Question.all
+  	@questions = Question.all.includes(:answers)
+    render json: @questions.to_json(include: :answers), status: :ok
   end
 
   def new
@@ -19,7 +20,7 @@ class QuestionsController < ApplicationController
 
   def update
     @question = Question.find(params[:id])
- 
+
     if @question.update(question_params)
       redirect_to @question
     else
@@ -36,13 +37,13 @@ class QuestionsController < ApplicationController
     end
   end
 
-  def destroy 
+  def destroy
     @question = Question.find(params[:id])
     @question.destroy
     redirect_to questions_path
   end
 
-  
+
 
 
   private
