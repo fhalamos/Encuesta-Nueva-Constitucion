@@ -16,7 +16,7 @@ class PollController < ApplicationController
   end
 
   def results
-    @score = current_user.get_score
+    @score = current_user.get_results
     render json: @score, status: :ok
   end
 

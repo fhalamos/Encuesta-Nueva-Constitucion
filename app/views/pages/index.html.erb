@@ -24,7 +24,10 @@
     <div class="row" ng-show="pollCompleted">
       <div class="col s8">
         <div id="results-chart">
-      </div>
+          <div class="result circle" ng-repeat="result in results" ng-style="{'left': result.coords.x, 'top': result.coords.y, 'background-image': 'url(' + result.image +')'}">
+            <div class="name">{{result.name}}</div>
+          </div>
+        </div>
       </div>
       <div class="col s4">
         <p>Xaxis: {{results.Xaxis}}</p>
