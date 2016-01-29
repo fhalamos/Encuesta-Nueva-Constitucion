@@ -1,2 +1,25 @@
-%nav
-  .logo
+%nav#main-header
+  .row
+    .col.s2
+      .logo
+        = image_tag 'logo.svg'
+    .col.s8
+      %ul
+        %li
+          =link_to '#' do
+            Sobre nosotros
+            %span.caret
+        %li
+          = link_to 'Formación Ciudadana', 'http://nosotrosciudadanos.cl/formacion-ciudadana/'
+        %li
+          = link_to '¡Participa!', 'http://nosotrosciudadanos.cl/participa/'
+        %li
+          = link_to 'Contacto', 'http://nosotrosciudadanos.cl/contacto/'
+        - if user_signed_in?
+          %li
+            = link_to 'Desconectar', destroy_user_session_path, :method => :delete
+    .col.s2.social
+      - img = image_tag 'fb.png'
+      = link_to img, 'https://www.facebook.com/NosotrosCiudadanos'
+      - img = image_tag 'tt.png'
+      = link_to img, 'https://twitter.com/NCiudadanos'

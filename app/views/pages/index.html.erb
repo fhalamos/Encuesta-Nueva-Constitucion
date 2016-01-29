@@ -3,35 +3,46 @@
   <div class="col s12">
     <div class="row" ng-hide="pollCompleted">
       <div class="col s8">
-          <div class = "card-panel">
-            <h4>{{ questions[currentQuestionIndex].content }}:</h4>
-            <div ng-repeat="answer in questions[currentQuestionIndex].answers">
-              <p>
-                <input class="blue" name="answer" type="radio" ng-model="$parent.currentAnswerId" id="{{'answer' + answer.id}}" value="{{answer.id}}" />
-                <label for="{{'answer' + answer.id}}">{{ answer.content }}</label>
-              </p>
+          <div class = "card">
+            <div class="card-content">
+              <span class="card-title">{{ questions[currentQuestionIndex].content }}:</span>
+
+              <div ng-repeat="answer in questions[currentQuestionIndex].answers">
+                <p>
+                  <input class="blue" name="answer" type="radio" ng-model="$parent.currentAnswerId" id="{{'answer' + answer.id}}" value="{{answer.id}}" />
+                  <label for="{{'answer' + answer.id}}">{{ answer.content }}</label>
+                </p>
+              </div>
+              <div class = "progress-bar" ng-style="{width: ( getProgress() + '%' ) }">{{ getProgressFraction() }}</div>
             </div>
-            <div class = "progress-bar" ng-style="{width: ( getProgress() + '%' ) }">{{ getProgressFraction() }}</div>
+            <div class="card-action right-align">
+              <a ng-click="submitAnswer()">Siguiente</a>
+            </div>
+
           </div>
 
 
-          <a ng-click="submitAnswer()" class="waves-effect green waves-green btn submit-btn">Siguiente</a>
+
       </div>
       <div class="col s4">
-        {{ postits[currentQuestionIndex].content }}
+        <div class="postit">
+          {{ postits[currentQuestionIndex].content }}
+        </div>
       </div>
     </div>
     <div class="row" ng-show="pollCompleted">
       <div class="col s8">
         <div id="results-chart">
+          <div class="axis y"></div>
+          <div class="axis x"></div>
           <div class="result circle" ng-repeat="result in results" ng-style="{'left': result.coords.x, 'top': result.coords.y, 'background-image': 'url(' + result.image +')'}">
             <div class="name">{{result.name}}</div>
           </div>
         </div>
       </div>
       <div class="col s4">
+        <h4>Tu resultado</h4>
         <p>Xaxis: {{results.Xaxis}}</p>
-        <p>Yaxis: {{results.Yaxis}}</p>
       </div>
     </div>
   </div>

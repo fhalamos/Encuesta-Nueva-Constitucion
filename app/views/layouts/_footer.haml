@@ -1,15 +1,19 @@
 %footer.page-footer
   .container
     .row
-      .col.s6
-        %h3 Colabora con nosotros!
-        %p Existen muchas formas de ser parte de Nosotros Ciudadanos. Elige la que más se acomode a tus posibilidades.
-      .col.s2
+      .col.s12.m3
+        .logo= image_tag 'logo.svg'
+      .col.s12.m6
+        %p
+          %b Nuestra oficina está ubicada en:
+        %p Huérfanos 863, oficina 612, Santiago Centro
 
-        Informándote
-      .col.s2
-        Realizando una donación
-      .col.s2
-        Colaborando como voluntario
-    .row
-    .row
+      .col.s12.m3.center
+        %p
+          Sitio financiado por el Fondo de fortalecimiento de las organizaciones de interés público
+    .row.help-links
+      .col.s12
+        %ul
+          %li= link_to 'Transparencia', 'http://nosotrosciudadanos.cl/transparencia/'
+          %li= link_to 'Preguntas Frecuentes', 'http://nosotrosciudadanos.cl/preguntas-frecuentes/'
+          %li= link_to 'Contacto', 'http://nosotrosciudadanos.cl/contacto/'

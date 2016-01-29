@@ -14,24 +14,33 @@
 <body ng-app='encuestaNuevaConstitucion'>
 
   <%= render 'layouts/header' %>
-  <div class="row">
-    <div class="row">
+  <div class="row page-title">
+    <div class = "container">
       <div class="col s12">
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
-
-        <p>
-          <% if user_signed_in? %>
-          <%= link_to 'Desconectar', destroy_user_session_path, :method => :delete, class: 'btn red' %>
-          <% end %>
-        </p>
+        <div class="subtitle">
+          <%= link_to 'Portada ' %>/
+        </div>
+        <h3>Encuesta</h3>
       </div>
     </div>
+  </div>
+  <div class="row">
+    <div class="container">
+      <div class="row">
+        <div class="col s12">
 
-    <div class="row">
-      <div class="col s12">
-        <%= yield %>
+
+        </div>
       </div>
+
+
+      <div class="row">
+
+        <div class="col s12">
+          <%= yield %>
+        </div>
+      </div>
+
     </div>
 
   </div>
