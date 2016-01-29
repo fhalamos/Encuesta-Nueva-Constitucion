@@ -26,18 +26,17 @@ angular.module('encuestaNuevaConstitucion')
 
     });
     Postit.index(function(data){
+
       $scope.postits = data;
     });
 
     $scope.loadResults = function(){
       Poll.results(function(data){
+        data.forEach(function(result){
+          var coords = $scope.scaleCoordinates(result.score.Xaxis, result.score.Yaxis);
+          result.coords = coords;
+        });
         $scope.results = data;
-        var resultsContainer = angular.element(document.getElementById('results-chart'));
-        var resultCircle = $compile("<div class='result circle'></div>")($scope);
-        var coords = $scope.scaleCoordinates(data.Xaxis, data.Yaxis);
-        resultCircle.css('left', coords.x + 'px');
-        resultCircle.css('bottom', coords.y + 'px');
-        resultsContainer.append(resultCircle);
       });
     }
 
