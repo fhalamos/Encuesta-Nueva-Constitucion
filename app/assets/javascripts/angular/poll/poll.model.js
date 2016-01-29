@@ -20,6 +20,7 @@ angular.module('encuestaNuevaConstitucion')
       },
       'results': {
         method: 'GET',
+        isArray: true,
         params: {
           controller: 'results'
         }
