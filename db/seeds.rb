@@ -224,3 +224,7 @@ quadrants = [
     description: 'Crees en el derecho y en la Constitución como una herramienta para mejorar las condiciones materiales de las personas y reparar injusticias históricas…pero vamos con cuidado. Aunque las instituciones tradicionales parecen un poco oxidadas, crees que son la opción más segura y confiable. Aunque se demore más, aunque cueste un poco más…llegaremos (algún día…pero con todos)!'
   }
 ]
+
+quadrants.each do |quadrant_info|
+  Quadrant.create(quadrant_info)
+end
