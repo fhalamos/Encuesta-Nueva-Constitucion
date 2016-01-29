@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('encuestaNuevaConstitucion')
-  .factory('Postit', function($resource) {
+  .factory('Postit',['$resource', function($resource) {
   return $resource("/api/postits/:id", { id: "@id" },
     {
       'create':  { method: 'POST' },
@@ -11,4 +11,4 @@ angular.module('encuestaNuevaConstitucion')
       'destroy': { method: 'DELETE' }
     }
   );
-});
+}]);

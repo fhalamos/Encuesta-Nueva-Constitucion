@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('encuestaNuevaConstitucion')
-  .factory('Poll', function($resource) {
+  .factory('Poll', ['$resource', function($resource) {
   return $resource("/api/poll/:controller", { },
     {
       'answer':  {
@@ -27,4 +27,4 @@ angular.module('encuestaNuevaConstitucion')
       }
     }
   );
-});
+}]);

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('encuestaNuevaConstitucion')
-  .factory('Question', function($resource) {
+  .factory('Question',['$resource', function($resource) {
   return $resource("/api/questions/:id", { id: "@id" },
     {
       'create':  { method: 'POST' },
@@ -11,4 +11,4 @@ angular.module('encuestaNuevaConstitucion')
       'destroy': { method: 'DELETE' }
     }
   );
-});
+}]);
