@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
 
   has_many :user_answers
+  has_many :answers, through: :user_answers
 
   def self.from_omniauth(auth)
     user = where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -24,11 +25,9 @@ class User < ActiveRecord::Base
   end
 
   def get_score
-    query = 'SELECT SUM("Xaxis"), SUM("Yaxis") FROM "answers" INNER JOIN "user_answers" ON "answers"."id" = "user_answers"."answer_id" INNER JOIN "users" ON "user_answers"."user_id" = ' + self.id.to_s + ';'
-    results = ActiveRecord::Base.connection.execute(query)
     {
-      Xaxis: results.getvalue(0,0),
-      Yaxis: results.getvalue(0,1)
+      Xaxis: answers.sum(:Xaxis),
+      Yaxis: answers.sum(:Yaxis)
     }
   end
 
