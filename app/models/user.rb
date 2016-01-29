@@ -21,13 +21,41 @@ class User < ActiveRecord::Base
 
     user.save
     user
+  end
+
+  def get_friends_scores
+    graph = Koala::Facebook::API.new(facebook_token)
+    friend_list = graph.get_connections('me', 'friends')
+    ids = friend_list.map{|f| f['id']}
+    User.where(uid: ids).map do |u|
+      format_user_info(u)
+    end
 
   end
+
+  def get_user_info
+    format_user_info(self)
+  end
+
+  def get_results
+    get_friends_scores().push(get_user_info)
+  end
+
+
 
   def get_score
     {
       Xaxis: answers.sum(:Xaxis),
       Yaxis: answers.sum(:Yaxis)
+    }
+  end
+
+  private
+  def format_user_info(user)
+    {
+      score: user.get_score,
+      name: user.name,
+      image: user.image
     }
   end
 
