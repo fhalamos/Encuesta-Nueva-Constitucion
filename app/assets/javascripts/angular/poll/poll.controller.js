@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('encuestaNuevaConstitucion')
-  .controller('PollController', [ '$scope', 'Question', 'Postit', 'Poll', function ($scope, Question, Postit, Poll) {
+  .controller('PollController', [ '$scope', 'Question', 'Postit', 'Poll', '$compile', function ($scope, Question, Postit, Poll, $compile) {
 
     $scope.currentQuestionIndex = 0;
     $scope.questions = [];
@@ -32,9 +32,25 @@ angular.module('encuestaNuevaConstitucion')
     $scope.loadResults = function(){
       Poll.results(function(data){
         $scope.results = data;
+        var resultsContainer = angular.element(document.getElementById('results-chart'));
+        var resultCircle = $compile("<div class='result circle'></div>")($scope);
+        var coords = $scope.scaleCoordinates(data.Xaxis, data.Yaxis);
+        resultCircle.css('left', coords.x + 'px');
+        resultCircle.css('bottom', coords.y + 'px');
+        resultsContainer.append(resultCircle);
       });
     }
 
+    $scope.scaleCoordinates = function(x, y){
+      var height = document.getElementById('results-chart').offsetHeight;
+      var width = document.getElementById('results-chart').offsetWidth;
+      var scaledX = x * width / 24;
+      var scaledY = y * height / 24;
+      return {
+        x: scaledX,
+        y: scaledY
+      }
+    }
 
     $scope.submitAnswer = function(){
       var answerData = {
