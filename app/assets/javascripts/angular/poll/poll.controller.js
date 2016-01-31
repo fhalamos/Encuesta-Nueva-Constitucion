@@ -9,6 +9,7 @@ angular.module('encuestaNuevaConstitucion')
     $scope.pollCompleted = false;
 
     $scope.postits = [];
+    $scope.quadrant = {};
 
     Question.index(function(response){
       $scope.questions = response;
@@ -38,6 +39,9 @@ angular.module('encuestaNuevaConstitucion')
         });
         $scope.results = data;
       });
+      Poll.quadrant(function(data){
+        $scope.quadrant = data;
+      })
     }
 
     $scope.scaleCoordinates = function(x, y){

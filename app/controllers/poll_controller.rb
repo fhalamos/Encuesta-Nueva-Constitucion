@@ -20,6 +20,11 @@ class PollController < ApplicationController
     render json: @score, status: :ok
   end
 
+  def quadrant
+    @quadrant = Quadrant.where(name: current_user.get_quadrant).first
+    render json: @quadrant, status: :ok
+  end
+
 
   private
 

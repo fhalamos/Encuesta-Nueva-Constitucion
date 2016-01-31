@@ -23,6 +23,25 @@ class User < ActiveRecord::Base
     user
   end
 
+  def get_quadrant
+    score = get_score
+    midX = Answer.sum(:Xaxis)/2
+    midY = Answer.sum(:Yaxis)/2
+    if score[:Xaxis] < midX
+      if score[:Yaxis] < midY
+        'El Posmo'
+      else
+        'El Orden y Progreso'
+      end
+    else
+      if score[:Yaxis] < midY
+        'El libertario'
+      else
+        'El reformista'
+      end
+    end
+  end
+
   def get_friends_scores
     graph = Koala::Facebook::API.new(facebook_token)
     friend_list = graph.get_connections('me', 'friends')

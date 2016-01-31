@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     post '/poll/answer' => 'poll#answer'
     get '/poll/answers' => 'poll#answers'
     get '/poll/results' => 'poll#results'
+    get '/poll/quadrant' => 'poll#quadrant'
   end
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks"}

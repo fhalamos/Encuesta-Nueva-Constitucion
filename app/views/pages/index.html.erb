@@ -31,7 +31,7 @@
       </div>
     </div>
     <div class="row" ng-show="pollCompleted">
-      <div class="col s8">
+      <div class="col s12 m8">
         <div id="results-chart">
           <div class="axis y"></div>
           <div class="axis x"></div>
@@ -40,9 +40,10 @@
           </div>
         </div>
       </div>
-      <div class="col s4">
+      <div class="col s12 m4">
         <h4>Tu resultado</h4>
-        <p>Xaxis: {{results.Xaxis}}</p>
+        <h2>{{quadrant.name}}</h2>
+        <p>{{quadrant.description}}</p>
       </div>
     </div>
   </div>
