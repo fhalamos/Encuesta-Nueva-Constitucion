@@ -35,6 +35,10 @@
         <div id="results-chart">
           <div class="axis y"></div>
           <div class="axis x"></div>
+          <div class="legend x left">Menos desarrollada</div>
+          <div class="legend x right">Más desarrollada</div>
+          <div class="legend y top">Mayor concentración de poder</div>
+          <div class="legend y bottom">Menor concentración de poder</div>
           <div class="result circle" ng-repeat="result in results" ng-style="{'left': result.coords.x, 'top': result.coords.y, 'background-image': 'url(' + result.image +')'}">
             <div class="name">{{result.name}}</div>
           </div>
@@ -44,7 +48,9 @@
         <h4>Tu resultado</h4>
         <h2>{{quadrant.name}}</h2>
         <p>{{quadrant.description}}</p>
+        <div id="share-with-facebook" ng-click="shareWithFacebook()" ng-show="quadrant.name">¡Compártelo en Faceook!</div>
       </div>
+
     </div>
   </div>
 </div>

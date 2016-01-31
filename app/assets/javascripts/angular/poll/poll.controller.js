@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('encuestaNuevaConstitucion')
-  .controller('PollController', [ '$scope', 'Question', 'Postit', 'Poll', '$compile', function ($scope, Question, Postit, Poll, $compile) {
+  .controller('PollController', [ '$scope', 'Question', 'Postit', 'Poll', '$compile', 'Facebook', '$location', function ($scope, Question, Postit, Poll, $compile, Facebook, $location) {
 
     $scope.currentQuestionIndex = 0;
     $scope.questions = [];
@@ -22,12 +22,10 @@ angular.module('encuestaNuevaConstitucion')
         else{
           $scope.currentQuestionIndex = data.length;
         }
-
       });
-
     });
-    Postit.index(function(data){
 
+    Postit.index(function(data){
       $scope.postits = data;
     });
 
@@ -45,10 +43,10 @@ angular.module('encuestaNuevaConstitucion')
     }
 
     $scope.scaleCoordinates = function(x, y){
-      var height = document.getElementById('results-chart').offsetHeight;
-      var width = document.getElementById('results-chart').offsetWidth;
-      var scaledX = x * width / 24;
-      var scaledY = y * height / 24;
+      var height = document.getElementById('results-chart').offsetHeight - 80;
+      var width = document.getElementById('results-chart').offsetWidth - 80;
+      var scaledX = x * width / 24 + 40;
+      var scaledY = y * height / 24 + 40;
       return {
         x: scaledX,
         y: scaledY
@@ -56,33 +54,46 @@ angular.module('encuestaNuevaConstitucion')
     }
 
     $scope.submitAnswer = function(){
-      var answerData = {
-        answer_id: $scope.currentAnswerId,
-        question_id: $scope.questions[$scope.currentQuestionIndex].id
-      }
-      Poll.answer(answerData, function(result){
-        if($scope.currentAnswerId > 0){
+
+      if($scope.currentAnswerId > 0){
+        var answerData = {
+          answer_id: $scope.currentAnswerId,
+          question_id: $scope.questions[$scope.currentQuestionIndex].id
+        }
+        Poll.answer(answerData, function(result){
+          $scope.currentAnswerId = -1;
           $scope.currentQuestionIndex += 1;
           if($scope.currentQuestionIndex == $scope.questions.length){
             $scope.pollCompleted = true;
             $scope.loadResults();
           }
-        }
-        else{
-          Materialize.toast('Selecciona una respuesta para continuar!', 3000);
-        }
-      }, function(error){
-        console.log('Server error.');
-      });
+        }, function(error){
+            Materialize.toast('Error de conexión. Inténtalo más tarde.', 3000);
+        });
+      }
+      else{
+        Materialize.toast('¡Selecciona una respuesta para continuar!', 3000);
+      }
+    };
 
+    $scope.shareWithFacebook = function(){
+      if($scope.quadrant.name != undefined){
+          console.log($scope.getMessage());
+          Facebook.feed($location.absUrl(), $scope.getMessage());
+      }
+
+    };
+
+    $scope.getMessage = function(){
+      return 'Respondí la encuesta de Nosotros Ciudadanos sobre cómo quiero la nueva Constitución, y soy "' + $scope.quadrant.name + '"';
     }
 
     $scope.getProgress = function(){
       return ($scope.currentQuestionIndex + 1) * 100 / $scope.questions.length;
-    }
+    };
 
     $scope.getProgressFraction = function(){
       return ($scope.currentQuestionIndex + 1) + '/' + $scope.questions.length;
-    }
+    };
 
 }]);
