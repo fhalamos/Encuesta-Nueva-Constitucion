@@ -29,15 +29,15 @@ class User < ActiveRecord::Base
     midY = Answer.sum(:Yaxis)/2
     if score[:Xaxis] < midX
       if score[:Yaxis] < midY
-        'El Posmo'
+        'Progresista'
       else
-        'El Orden y Progreso'
+        'Reformista'
       end
     else
       if score[:Yaxis] < midY
-        'El libertario'
+        'Libertaria'
       else
-        'El reformista'
+        'Conservadora'
       end
     end
   end

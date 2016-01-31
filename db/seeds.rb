@@ -15,7 +15,7 @@ questions_content = [
 'Sobre el derecho a vivir en un medioambiente adecuado y libre de contaminación',
 'La gratuidad de la educación superior',
 'El reconocimiento de los Pueblos Originarios',
-'La discriminación positiva hacia ciertos grupos hoy sub-representados en muchos ámbitos (mujeres, indígenas, jóvenes)'
+'El rol del Estado en la economía'
 ]
 
 questions = questions_content.each_with_index.map do |content, index|
@@ -27,145 +27,145 @@ end
 
 answers = [
   {
-    content: 'Es importante asegurar que el país siga teniendo una unidad en sus políticas, en sus leyes y en el criterio de los jueces, como es nuestra tradición histórica',
+    content: 'Chile debe respetar su tradición histórica unitaria. Es importante asegurar que el país siga teniendo una unidad en sus políticas, normas jurídicas y autoridades.',
     question_number: 1,
     XAxis: 0,
     YAxis: 6
   },
   {
-    content: 'Hay que combinar un Estado Centralizado con mayores grados de descentralización, por ejemplo, eligiendo por voto a la autoridad máxima de cada región',
+    content: 'Partiendo de la base que Chile debe ser un Estado unitario, se podría avanzar en descentralizar algunos aspectos, por ejemplo, eligiendo popularmente a los intendentes.',
     question_number: 1,
     XAxis: 0,
     YAxis: 3
   },
   {
-    content: 'Chile debe ser un Estado Federal: cada región con autonomía para tener sus propias leyes, cortes, y gobiernos, como pasa en otros países',
+    content: 'Chile debe ser un Estado Federal: cada región con autonomía para tener sus propias leyes, cortes, y gobiernos, al Estilo de EE.UU. o Argentina.',
     question_number: 1,
     XAxis: 0,
     YAxis: 0
   },
   {
-    content: 'Democracia representativa: hay que darle importancia a las instituciones y a las autoridades, pues han sido democráticamente electas para representar a la ciudadanía',
+    content: 'Democracia representativa: hay que fortalecer el rol de las autoridades representativas del Pueblo y su capacidad de llegar a acuerdos coherentes, así como darles más obligaciones.',
     question_number: 2,
     XAxis: 0,
     YAxis: 6
   },
   {
-    content: 'Democracia participativa: la democracia representativa necesita mayores espacios para escuchar a la ciudadanía de los actualmente tiene',
+    content: 'Democracia participativa: La idea de que el Pueblo se manifieste a través de sus representantes es realista, pero hay que ampliar y mejorar los espacios de participación ciudadana que convivan con ellos, como los Consejos de la Sociedad Civil.',
     question_number: 2,
     XAxis: 0,
     YAxis: 3
   },
   {
-    content: 'Democracia directa: Debemos avanzar a que las personas puedan participar directa y vinculantemente a través de plebiscitos y consultas',
+    content: 'Democracia directa: Considerando los avances tecnológicos, debemos avanzar a que todas las personas puedan participar directa y vinculantemente a través de plebiscitos y consultas.',
     question_number: 2,
     XAxis: 0,
     YAxis: 0
   },
   {
-    content: 'Presidencialista: el Presidente debe llevar la política exterior e interna, y debe tener las herramientas necesarias para llevar a cabo su programa, por el cual la mayoría del país votó',
+    content: 'Presidencialismo: la elección presidencial es la más importante y no puede dar lo mismo. Se requiere una autoridad fuerte que puede ejecutar un programa nacional, y que represente a País frente a las otras naciones.',
     question_number: 3,
     XAxis: 0,
     YAxis: 6
   },
   {
-    content: 'Semipresidencialismo: debe haber un Presidente, elegido para llevar la política exterior y garantizar unidad, y un Primer Ministro, que esté a cargo del gobierno interior',
+    content: 'Semipresidencialismo: Debe buscarse un equilibrio, por ejemplo, a través de un Presidente que represente al País para asuntos internacionales y un primer ministro que se ocupe de las tareas de gobierno "hacia dentro"',
     question_number: 3,
     XAxis: 0,
     YAxis: 3
   },
   {
-    content: 'Parlamentarismo: el jefe del gobierno debe ser un parlamentario, quien se mantendrá en su cargo mientras cuente con la confianza del Congreso.',
+    content: 'Parlamentarismo: el centro de la vida política debe estar en el Congreso, donde se manifiesta la diversidad del País. El jefe de gobierno debe ser un parlamentario y debe mantenerse en su puesto mientras cuente con la confianza de los demás congresistas.',
     question_number: 3,
     XAxis: 0,
     YAxis: 0
   },
   {
-    content: 'Un acuerdo amplio dentro de las reglas que ya conocemos, es decir, en el Congreso',
+    content: 'Un acuerdo amplio dentro de las reglas que hoy rigen a las instituciones vigentes, es decir, en el Congreso.',
     question_number: 4,
     XAxis: 0,
     YAxis: 6
   },
   {
-    content: 'Un mecanismo híbrido que contemple al Congreso, pero también a otros ciudadanos expertos o que sean representativos de la ciudadanía',
+    content: 'Un mecanismo mixto que contemple al Congreso, pero también a otros ciudadanos expertos o que sean representativos de la ciudadanía.',
     question_number: 4,
     XAxis: 0,
     YAxis: 3
   },
   {
-    content: 'Una Asamblea Constituyente especialmente elegida para esa tarea, compuesta por miembros representativos de los distintos grupos de la sociedad',
+    content: 'Una Asamblea Constituyente especialmente elegida para esa tarea, compuesta por miembros representativos de los distintos grupos de la sociedad.',
     question_number: 4,
     XAxis: 0,
     YAxis: 0
   },
   {
-    content: 'Una Asamblea Constituyente especialmente elegida para esa tarea, compuesta por miembros representativos de los distintos grupos de la sociedad',
+    content: 'Al no ser algo que la Constitución pueda garantizar, es inconveniente que lo contemple.',
     question_number: 5,
     XAxis: 6,
     YAxis: 0
   },
   {
-    content: 'Debiese garantizarse el derecho como un principio general, debiendo los parlamentarios y el gobierno darle una bajada concreta',
+    content: 'Debiese garantizarse el derecho como un principio general, debiendo los parlamentarios y el gobierno darle una aplicación práctica mediante leyes y políticas públicas.',
     question_number: 5,
     XAxis: 3,
     YAxis: 0
   },
   {
-    content: 'Debiese estar consagrado y explicitar algunos mecanismos específicos para asegurarlo',
+    content: 'Debiese estar consignado en la Constitución y explicitar algunos mecanismos específicos para asegurarlo, como por ejemplo la existencia de normas de emisiones.',
     question_number: 5,
     XAxis: 0,
     YAxis: 0
   },
   {
-    content: 'No debiese quedar fijada en la Constitución, depende de muchos factores (económicos, visión del gobierno de turno, etc.)',
+    content: 'No debiese quedar fijada en la Constitución, pues depende de muchos factores (económicos, visión del gobierno de turno, etc.).',
     question_number: 6,
     XAxis: 6,
     YAxis: 0
   },
   {
-    content: 'Debe estar establecida como un principio al cual se aspira, aunque sea progresivamente',
+    content: 'Debe estar establecida como un principio al cual se aspira, aunque sea progresivamente.',
     question_number: 6,
     XAxis: 3,
     YAxis: 0
   },
   {
-    content: 'Debe garantizarse, estableciendo criterios y mecanismos concretos para realizarla',
+    content: 'Debe garantizarse, estableciendo criterios y mecanismos concretos para realizarla.',
     question_number: 6,
     XAxis: 0,
     YAxis: 0
   },
   {
-    content: 'Posee muchas complejidades (por ejemplo, con otras minorías) y pone en jaque la unidad nacional',
+    content: 'Posee muchas complejidades (por ejemplo, con otras minorías) y pone en jaque la unidad nacional.',
     question_number: 7,
     XAxis: 6,
     YAxis: 0
   },
   {
-    content: 'Debe estar mencionado, los Pueblos Originarios son una parte importante de nuestra identidad',
+    content: 'Debe estar mencionado, los Pueblos Originarios son una parte importante de nuestra identidad.',
     question_number: 7,
     XAxis: 3,
     YAxis: 0
   },
   {
-    content: 'Debe estar ampliamente desarrollado, pronunciándose sobre sus derechos y grados de autonomía',
+    content: 'Debe estar ampliamente desarrollado, pronunciándose sobre sus derechos y grados de autonomía.',
     question_number: 7,
     XAxis: 0,
     YAxis: 0
   },
   {
-    content: 'Debe ser fruto de un cambio cultural',
+    content: 'Debe estar lo más lejos posible de la Constitución. Una actividad dinámica como es la economía no puede estar regulada por un mecanismo tan estable y difícil de cambiar como son las constituciones.',
     question_number: 8,
     XAxis: 6,
     YAxis: 0
   },
   {
-    content: 'Debe ser fruto de un cambio cultural',
+    content: 'Está bien que la Constitución no se case con un modelo económico determinado, pero puede establecer ciertas reglas importantes sobre la participación del Estado en materias económicas.',
     question_number: 8,
     XAxis: 3,
     YAxis: 0
   },
   {
-    content: 'Debe ser fomentada por la Constitución, estableciendo la procedencia de leyes de cuotas u otros mecanismos',
+    content: 'La Constitución debe reflejar la opinión sobre el orden económico que la gran mayoría del País considere correcto, estableciendo detalladamente la participación del Estado en la economía.',
     question_number: 8,
     XAxis: 0,
     YAxis: 0
@@ -204,23 +204,19 @@ end
 
 quadrants = [
   {
-    name: 'El Posmo',
-    title: 'Cuadrante inferior-izquierdo: “El Posmo"',
-    description: 'Eres signo de nuestros tiempos. Miras con sospecha las tradicionales instituciones políticas, que crees que han impedido mayores conquistas sociales y han perpetuado la discriminación. Te gustaría una Constitución “hecha desde abajo” (Viva la AC!), y que se la juegue por los derechos sociales, aunque termine pareciendo árbol de pascua.'
+    name: 'Progresista',
+    description: 'Miras con sospecha las tradicionales instituciones políticas, que crees que han impedido mayores conquistas sociales y han perpetuado la discriminación. Te gustaría una Constitución y una política “hecha desde abajo” (Viva la AC!), y que se la juegue por los derechos sociales… aunque termine pareciendo árbol de pascua.'
   },
   {
-    name: 'El Orden y Progreso',
-    title: 'Cuadrante superior-derecho: “El Orden y Progreso”.',
+    name: 'Conservadora',
     description: 'Si hay algo que detestas más que el populismo, es la excesiva intervención estatal en nuestras libertades económicas, que impiden el crecimiento. Crees que el país avanzará si hay orden, reglas claras, y alguien “que lleve la batuta”. Probablemente no creas en el cambio de Constitución, pero si  va a suceder igual, esperas que prime la cordura y que no terminemos en Venezuela.'
   },
   {
-    name: 'El libertario',
-    title: 'Cuadrante inferior-derecho: “El libertario',
-    description: 'Puede que a veces tengas pesadillas con el Estado. Aunque crees que es necesario, te gustaría que fuera muy mínimo. Por el contrario, crees en el poder de los individuos, y ves con entusiasmo las posibilidades que las nuevas tecnologías le dan al ciudadano común para influir. Del mismo modo eres escéptico de los derechos sociales y de que la Constitución sea la vía para mayor justicia social. No a las soluciones “desde arriba”!'
+    name: 'Libertaria',
+    description: 'Puede que a veces tengas pesadillas con el Estado. Aunque crees que es necesario, te gustaría que fuera muy mínimo. Por el contrario, crees en el poder de los individuos, y ves con entusiasmo las posibilidades que las nuevas tecnologías le dan al ciudadano común para influir. Del mismo modo eres escéptico de los derechos sociales y de que la Constitución sea la vía para mayor justicia social. No a las soluciones "desde arriba"!'
   },
   {
-    name: 'El reformista',
-    title: 'Cuadrante superior-izquierdo: “El reformista',
+    name: 'Reformista',
     description: 'Crees en el derecho y en la Constitución como una herramienta para mejorar las condiciones materiales de las personas y reparar injusticias históricas…pero vamos con cuidado. Aunque las instituciones tradicionales parecen un poco oxidadas, crees que son la opción más segura y confiable. Aunque se demore más, aunque cueste un poco más…llegaremos (algún día…pero con todos)!'
   }
 ]
