@@ -7,8 +7,8 @@ angular.module('encuestaNuevaConstitucion').factory('Facebook',['$window', funct
   Facebook.feed = function(url, message){
     FB.ui({
       method: 'feed',
-      link: 'https://developers.facebook.com/docs/',
-      caption: 'An example caption',
+      link: url,
+      caption: message,
     }, function(response){});
   };
 
