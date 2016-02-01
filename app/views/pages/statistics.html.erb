@@ -1,0 +1,32 @@
+
+<div class="row statistics-container" ng-controller="StatisticsController">
+  <div class="col s12">
+    <div class="row">
+      <div class="col s12 m8">
+        <h3>Estadísticas de la encuesta</h3>
+
+        <div class="questions">
+          <div class="question" ng-repeat="question in questions">
+            <h5>{{question.content}}</h5>
+            <div class="answers">
+              <div class="answer" ng-repeat="answer in question.answers">
+                <div class="color-block"></div>
+                <p>{{answer.content}}</p>
+              </div>
+            </div>
+            <div class="bar-chart">
+              <div class="answer-bar" ng-repeat="answer in question.answers" ng-style="{'width': getWidth(question, answer) + '%'}">
+                <div>{{getWidth(question, answer)}}%</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m4">
+        <%= render 'layouts/actions' %>
+      </div>
+
+    </div>
+  </div>
+</div>

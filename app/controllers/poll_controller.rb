@@ -25,6 +25,11 @@ class PollController < ApplicationController
     render json: @quadrant, status: :ok
   end
 
+  def statistics
+    @statistics = UserAnswer.all.group(:answer_id).count(:answer_id)
+    render json: @statistics, status: :ok
+  end
+
 
   private
 

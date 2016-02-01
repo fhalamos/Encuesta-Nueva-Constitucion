@@ -1,0 +1,34 @@
+.statistics-container
+  .question
+    margin-bottom: 50px
+  .answer
+    overflow: hidden
+    &:nth-child(3n)
+      .color-block
+        background-color: #2ecc71
+    &:nth-child(3n+1)
+      .color-block
+        background-color: #3498db
+    &:nth-child(3n+2)
+      .color-block
+        background-color: #e74c3c
+    .color-block
+      width: 10px
+      height: 10px
+      display: inline-block
+
+    p
+      display: inline
+  .bar-chart
+    margin-top: 20px
+
+  .answer-bar
+    color: white
+    text-align: center
+    float: left
+    &:nth-child(3n)
+      background-color: #2ecc71
+    &:nth-child(3n+1)
+      background-color: #3498db
+    &:nth-child(3n+2)
+      background-color: #e74c3c

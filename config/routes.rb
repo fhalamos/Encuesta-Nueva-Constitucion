@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   root 'pages#index'
+  get 'estadisticas' => 'pages#statistics'
 
   resources :user_answers
   resources :results
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
     get '/poll/answers' => 'poll#answers'
     get '/poll/results' => 'poll#results'
     get '/poll/quadrant' => 'poll#quadrant'
+    get '/poll/statistics' => 'poll#statistics'
   end
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks"}

@@ -30,6 +30,12 @@ angular.module('encuestaNuevaConstitucion')
         params: {
           controller: 'quadrant'
         }
+      },
+      'statistics': {
+        method: 'GET',
+        params: {
+          controller: 'statistics'
+        }
       }
     }
   );
