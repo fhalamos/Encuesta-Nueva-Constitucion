@@ -46,7 +46,7 @@ class User < ActiveRecord::Base
     graph = Koala::Facebook::API.new(facebook_token)
     friend_list = graph.get_connections('me', 'friends')
     ids = friend_list.map{|f| f['id']}
-    User.where(uid: ids).map do |u|
+    User.where(uid: ids).limit(10).map do |u|
       format_user_info(u)
     end
 

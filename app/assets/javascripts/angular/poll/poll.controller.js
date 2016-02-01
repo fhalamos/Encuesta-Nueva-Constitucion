@@ -7,6 +7,7 @@ angular.module('encuestaNuevaConstitucion')
     $scope.questions = [];
     $scope.currentAnswerId = 0;
     $scope.pollCompleted = false;
+    $scope.chartUserLimit = 3;
 
     $scope.postits = [];
     $scope.quadrant = {};
