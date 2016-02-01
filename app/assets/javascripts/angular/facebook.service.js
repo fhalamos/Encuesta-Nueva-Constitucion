@@ -6,9 +6,10 @@ angular.module('encuestaNuevaConstitucion').factory('Facebook',['$window', funct
 
   Facebook.feed = function(url, message){
     FB.ui({
-      method: 'share',
+      method: 'feed',
       link: url,
       caption: message,
+      display: 'popup'
     }, function(response){});
   };
 
