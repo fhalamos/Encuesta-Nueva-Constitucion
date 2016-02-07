@@ -22,11 +22,20 @@ $small-circle-r: 40px
     height: $small-circle-r
     background: #1abc9c
     background-size: 100% 100%
+    cursor: pointer
+    z-index: 9
+    &:hover
+      z-index: 10
+      .name
+        background: rgba(255, 255, 255, 0.8)
     .name
       position: absolute
       left: ($small-circle-r + 10)
       font-size: 12px
       color: #333
+      padding: 10px
+      margin-top: -10px
+      pointer-events: none
   .legend
     position: absolute
     font-size: 11px

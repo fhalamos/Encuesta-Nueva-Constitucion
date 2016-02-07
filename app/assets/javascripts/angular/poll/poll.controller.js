@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('encuestaNuevaConstitucion')
-  .controller('PollController', [ '$scope', 'Question', 'Postit', 'Poll', '$compile', 'Facebook', '$location', function ($scope, Question, Postit, Poll, $compile, Facebook, $location) {
+  .controller('PollController', ['$scope', 'Question', 'Postit', 'Poll', '$compile', 'Facebook', '$location', function($scope, Question, Postit, Poll, $compile, Facebook, $location) {
 
-    $scope.currentQuestionIndex = 0;
+    $scope.currentQuestionIndex = -1;
     $scope.questions = [];
     $scope.currentAnswerId = 0;
     $scope.pollCompleted = false;
@@ -12,89 +12,91 @@ angular.module('encuestaNuevaConstitucion')
     $scope.postits = [];
     $scope.quadrant = {};
 
-    Question.index(function(response){
+    Question.index(function(response) {
       $scope.questions = response;
 
-      Poll.answers(function(data){
+      Poll.answers(function(data) {
         $scope.pollCompleted = data.length == $scope.questions.length;
-        if($scope.pollCompleted){
+        if ($scope.pollCompleted) {
           $scope.loadResults();
-        }
-        else{
+        } else {
           $scope.currentQuestionIndex = data.length;
         }
       });
     });
 
-    Postit.index(function(data){
+    Postit.index(function(data) {
       $scope.postits = data;
     });
 
-    $scope.loadResults = function(){
-      Poll.results(function(data){
-        data.forEach(function(result){
+    $scope.isPollAvailable = function(){
+      return !$scope.pollCompleted && $scope.currentQuestionIndex >= 0;
+    };
+
+    $scope.loadResults = function() {
+      Poll.results(function(data) {
+        data.forEach(function(result) {
           var coords = $scope.scaleCoordinates(result.score.Xaxis, result.score.Yaxis);
           result.coords = coords;
         });
         $scope.results = data;
       });
-      Poll.quadrant(function(data){
+      Poll.quadrant(function(data) {
         $scope.quadrant = data;
-      })
-    }
+      });
+    };
 
-    $scope.scaleCoordinates = function(x, y){
+    $scope.scaleCoordinates = function(x, y) {
       var height = document.getElementById('results-chart').offsetHeight - 80;
       var width = document.getElementById('results-chart').offsetWidth - 80;
-      var scaledX = x * width / 24 + 40;
-      var scaledY = y * height / 24 + 40;
+      var scaledX = x * width / 24 + 40 + (Math.random() * 30 - 15);
+      var scaledY = y * height / 24 + 40 + (Math.random() * 30 - 15);
       return {
         x: scaledX,
         y: scaledY
-      }
-    }
+      };
+    };
 
-    $scope.submitAnswer = function(){
+    $scope.submitAnswer = function() {
 
-      if($scope.currentAnswerId > 0){
+      if ($scope.currentAnswerId > 0) {
         var answerData = {
           answer_id: $scope.currentAnswerId,
           question_id: $scope.questions[$scope.currentQuestionIndex].id
-        }
-        Poll.answer(answerData, function(result){
+        };
+        Poll.answer(answerData, function(result) {
           $scope.currentAnswerId = -1;
           $scope.currentQuestionIndex += 1;
-          if($scope.currentQuestionIndex == $scope.questions.length){
+          if ($scope.currentQuestionIndex == $scope.questions.length) {
             $scope.pollCompleted = true;
             $scope.loadResults();
           }
-        }, function(error){
-            Materialize.toast('Error de conexión. Inténtalo más tarde.', 3000);
+        }, function(error) {
+          Materialize.toast('Error de conexión. Inténtalo más tarde.', 3000);
         });
-      }
-      else{
+      } else {
         Materialize.toast('¡Selecciona una respuesta para continuar!', 3000);
       }
     };
 
-    $scope.shareWithFacebook = function(){
-      if($scope.quadrant.name != undefined){
-          console.log($scope.getMessage());
-          Facebook.feed($location.absUrl(), $scope.getMessage());
+    $scope.shareWithFacebook = function() {
+      if ($scope.quadrant.name !== undefined) {
+        console.log($scope.getMessage());
+        Facebook.feed($location.absUrl(), $scope.getMessage());
       }
 
     };
 
-    $scope.getMessage = function(){
+    $scope.getMessage = function() {
       return 'Respondí la encuesta de Nosotros Ciudadanos sobre cómo quiero la nueva Constitución, y soy "' + $scope.quadrant.name + '"';
-    }
+    };
 
-    $scope.getProgress = function(){
+    $scope.getProgress = function() {
       return ($scope.currentQuestionIndex + 1) * 100 / $scope.questions.length;
     };
 
-    $scope.getProgressFraction = function(){
+    $scope.getProgressFraction = function() {
       return ($scope.currentQuestionIndex + 1) + '/' + $scope.questions.length;
     };
 
-}]);
+  }]);

@@ -1,7 +1,7 @@
 
 <div class="row poll-container" ng-controller="PollController">
   <div class="col s12">
-    <div class="row" ng-hide="pollCompleted">
+    <div class="row" ng-show="isPollAvailable()" ng-cloak>
       <div class="col s8">
           <div class = "card">
             <div class="card-content">
@@ -30,7 +30,7 @@
         </div>
       </div>
     </div>
-    <div class="row" ng-show="pollCompleted">
+    <div class="row" ng-show="pollCompleted" ng-cloak>
       <div class="col s12 m8">
         <div id="results-chart">
           <div class="axis y"></div>
