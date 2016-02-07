@@ -36,6 +36,12 @@ angular.module('encuestaNuevaConstitucion')
         params: {
           controller: 'statistics'
         }
+      },
+      'resetAnswers': {
+        method: 'GET',
+        params: {
+          controller: 'reset_answers'
+        }
       }
     }
   );

@@ -15,10 +15,6 @@ angular.module('encuestaNuevaConstitucion')
       });
     });
 
-
-
-
-
     $scope.getWidth = function(question, answer){
       var values = question.answers.map(function(obj){
         return $scope.statistics[obj.id] || 0;

@@ -30,6 +30,15 @@ class PollController < ApplicationController
     render json: @statistics, status: :ok
   end
 
+  def reset_answers
+    if current_user
+      current_user.user_answers.delete_all
+      render json: {}, status: :ok
+    else
+      render json: {}, status: 422
+    end
+  end
+
 
   private
 

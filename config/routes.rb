@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     get '/poll/results' => 'poll#results'
     get '/poll/quadrant' => 'poll#quadrant'
     get '/poll/statistics' => 'poll#statistics'
+    get '/poll/reset_answers' => 'poll#reset_answers'
   end
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks"}
