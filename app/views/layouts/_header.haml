@@ -5,11 +5,17 @@
         - img = image_tag 'logo.svg'
         = link_to img, 'http://nosotrosciudadanos.cl/'
     .col.s12.m8
-      %ul
+      %ul.main-nav
         %li
           =link_to '#' do
             Sobre nosotros
             %span.caret
+          .submenu
+            %ul
+              %li= link_to 'Visión y Misión', 'http://nosotrosciudadanos.cl/vision-y-mision/'
+              %li= link_to 'Áreas de Trabajo', 'http://nosotrosciudadanos.cl/areas-de-trabajo/'
+              %li= link_to 'Nuestro Equipo', 'http://nosotrosciudadanos.cl/equipo/'
+              %li= link_to 'Preguntas Frecuentes', 'http://nosotrosciudadanos.cl/preguntas-frecuentes/'
         %li
           = link_to 'Formación Ciudadana', 'http://nosotrosciudadanos.cl/formacion-ciudadana/'
         %li
