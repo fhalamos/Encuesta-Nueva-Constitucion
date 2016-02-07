@@ -174,14 +174,15 @@ answers = [
 
 puts answers.length
 
-answers.each do |answer|
+created_answers_ids = answers.map do |answer|
 
-  Answer.create!({
+  answer = Answer.create!({
     content: answer[:content],
     question: questions[answer[:question_number] - 1],
     Xaxis: answer[:XAxis],
     Yaxis: answer[:YAxis]
     })
+  answer.id
 end
 
 postits_content = [
@@ -223,4 +224,42 @@ quadrants = [
 
 quadrants.each do |quadrant_info|
   Quadrant.create(quadrant_info)
+end
+
+
+famous_info = [
+  {
+    name: 'Sebastián Piñera',
+    image: 'https://s3.amazonaws.com/nuevaconstitucion/sp.jpg',
+    email: 'iSBjEEWetO@example.com',
+    password: '2S4U0xKeUT',
+    password_confirmation: '2S4U0xKeUT',
+    internal_answers: [0, 3, 6, 9, 12, 15, 18, 21]
+  },
+  {
+    name: 'Michelle Bachelet',
+    image: 'https://s3.amazonaws.com/nuevaconstitucion/mb.png',
+    email: 'pAyG0425Gl@example.com',
+    password: '2S4U0xKeUT',
+    password_confirmation: '2S4U0xKeUT',
+    internal_answers: [1, 4, 7, 10, 13, 16, 19, 22]
+  },
+  {
+    name: 'Ricardo Lagos',
+    image: 'https://s3.amazonaws.com/nuevaconstitucion/rl.jpg',
+    email: 'NdLdsLo89h@example.com',
+    password: '2S4U0xKeUT',
+    password_confirmation: '2S4U0xKeUT',
+    internal_answers: [2, 5, 8, 11, 14, 17, 20, 23]
+  }
+];
+
+famous_info.each do |famous_data|
+  famous = User.create!(famous_data.except(:internal_answers).merge({famous: true}))
+  famous_data[:internal_answers].each do |answer_id|
+    UserAnswer.create({
+      answer_id: created_answers_ids[answer_id],
+      user_id: famous.id
+      })
+  end
 end

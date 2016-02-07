@@ -57,9 +57,14 @@ class User < ActiveRecord::Base
   end
 
   def get_results
-    get_friends_scores().push(get_user_info)
+    get_friends_scores().push(get_user_info).push(*get_famous_results)
   end
 
+  def get_famous_results
+    User.where(famous: true).map do |u|
+      format_user_info(u)
+    end
+  end
 
 
   def get_score
@@ -74,7 +79,8 @@ class User < ActiveRecord::Base
     {
       score: user.get_score,
       name: user.name,
-      image: user.image
+      image: user.image,
+      famous: user.famous
     }
   end
 

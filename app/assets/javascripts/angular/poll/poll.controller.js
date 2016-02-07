@@ -61,8 +61,8 @@
 
       $scope.scaleCoordinates = function(x, y) {
         var height = document.getElementById('results-chart').offsetHeight - 80;
-        var width = document.getElementById('results-chart').offsetWidth - 80;
-        var scaledX = x * width / 24 + 40 + (Math.random() * 30 - 15);
+        var width = document.getElementById('results-chart').offsetWidth - 180;
+        var scaledX = x * width / 24 + 90 + (Math.random() * 30 - 15);
         var scaledY = y * height / 24 + 40 + (Math.random() * 30 - 15);
         return {
           x: scaledX,
