@@ -30,14 +30,14 @@
         $scope.postits = data;
       });
 
-      $scope.resetPoll = function(){
-        Poll.resetAnswers(function(response){
+      $scope.resetPoll = function() {
+        Poll.resetAnswers(function(response) {
           $scope.pollCompleted = false;
           $scope.currentQuestionIndex = 0;
           $scope.results = {};
           $scope.quadrant = {};
 
-        }, function(error){
+        }, function(error) {
           console.log('Failed to reset poll.');
         });
       };

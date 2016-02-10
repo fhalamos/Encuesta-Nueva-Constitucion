@@ -16,7 +16,7 @@
             </div>
             <div class="bar-chart">
               <div class="answer-bar" ng-repeat="answer in question.answers" ng-style="{'width': getWidth(question, answer) + '%'}">
-                <div>{{getWidth(question, answer)}}%</div>
+                <div>{{getWidth(question, answer) | number:0}}%</div>
               </div>
             </div>
 
