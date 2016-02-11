@@ -101,7 +101,7 @@
       };
 
       $scope.getMessage = function() {
-        return 'Respondí la encuesta de Nosotros Ciudadanos sobre cómo quiero la nueva Constitución, y soy "' + $scope.quadrant.name + '"';
+        return 'La mía es "' + $scope.quadrant.name + '"... la tuya?';
       };
 
       $scope.getProgress = function() {

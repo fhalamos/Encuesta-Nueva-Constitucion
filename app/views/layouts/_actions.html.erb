@@ -1,22 +1,22 @@
 <div class="actions">
-  <p class="description">Revisa los 8 conceptos del proceso para la nueva Constitución.</p>
+  <p class="description">Infórmate sobre el consejo ciudadano de observadores.</p>
   <a href="http://www.gob.cl/2015/10/13/8-conceptos-del-proceso-para-la-nueva-constitucion/" target="_blank">
-      <div class="nc-button">Más información</div>
+    <div class="nc-button">Más información</div>
   </a>
 
   <% if action_name == 'statistics' %>
-    <%= link_to root_path do %>
-      <div class="nc-button">Volver a mis resultados</div>
-    <% end %>
+  <%= link_to root_path do %>
+  <div class="nc-button">Volver a mis resultados</div>
+  <% end %>
   <% else %>
-    <p class="description">Revisa las estadísticas de los resultados de la encuesta.</p>
-    <a href="/estadisticas">
-      <div class="nc-button">Ver estadísticas</div>
-    </a>
-    <p class="description">Responde nuevamente la encuesta, cambiando tus respuestas anteriores.</p>
-    <a href="#">
-      <div class="nc-button" ng-click="resetPoll()">Volver a responder</div>
-    </a>
+  <p class="description">Revisa las estadísticas de los resultados de la encuesta.</p>
+  <a href="/estadisticas">
+    <div class="nc-button">Ver estadísticas</div>
+  </a>
+  <p class="description">Responde nuevamente la encuesta, cambiando tus respuestas anteriores.</p>
+  <a href="#">
+    <div class="nc-button" ng-click="resetPoll()">Volver a responder</div>
+  </a>
   <% end %>
 
 </div>

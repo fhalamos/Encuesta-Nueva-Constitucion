@@ -55,6 +55,7 @@
         <p>{{quadrant.description}}</p>
         <div id="share-with-facebook" ng-click="shareWithFacebook()" ng-show="quadrant.name">¡Compártelo en Faceook!</div>
         <div class="facebook-friends">
+          <p>Tus amigos también han respondido esta encuesta.</p>
           <div class="facebook-friend" ng-repeat="result in results | filter:{famous:false}" ng-style="{'background-image': 'url(' + result.image +')'}">
           </div>
         </div>
