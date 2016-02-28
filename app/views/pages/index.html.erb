@@ -2,7 +2,7 @@
 <div class="row poll-container" ng-controller="PollController">
   <div class="col s12">
     <div class="row" ng-show="isPollAvailable()" ng-cloak>
-      <div class="col s8">
+      <div class="col s12 l8">
           <div class = "card">
             <div class="card-content">
               <span class="card-title">{{ questions[currentQuestionIndex].content }}:</span>
@@ -24,14 +24,14 @@
 
 
       </div>
-      <div class="col s4">
+      <div class="col s12 l4">
         <div class="postit">
           {{ postits[currentQuestionIndex].content }}
         </div>
       </div>
     </div>
     <div class="row" ng-show="pollCompleted" ng-cloak>
-      <div class="col s12 m8">
+      <div class="col s12 l8">
         <div id="results-chart">
           <div class="axis y"></div>
           <div class="axis x"></div>
@@ -49,7 +49,7 @@
         <h5>Eje de las ordenadas</h5>
         <p>Se refiere a la preferencia por una Constitución desarrollada o mínima. Quienes obtengan alto puntaje en este eje son quienes optan por la segunda opción, siendo más favorables a los cambios culturales, o incluso al desarrollo legislativo o través de las políticas públicas de determinados objetivos políticos, pero no en la Constitución. Contrariamente, quienes obtengan bajo puntaje están más proclives a una Constitución ampliamente desarrollada, que no sólo tome vastas definiciones políticas, sino que explicite algunos de los mecanismos a usar para lograrlos.</p>
       </div>
-      <div class="col s12 m4">
+      <div class="col s12 l4">
         <h4>Tu resultado</h4>
         <h2>{{quadrant.name}}</h2>
         <p>{{quadrant.description}}</p>
