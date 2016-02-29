@@ -186,13 +186,13 @@ created_answers_ids = answers.map do |answer|
 end
 
 postits_content = [
-  '¿Sabías que? La constitución es la Ley Fundamental del Estado establecida o aceptada como guía para su gobernación; es decir, es la norma jurídica de más alto rango en el ordenamiento político. La constitución pone las reglas de la casa.',
-  '¿Qué dice una constitución? El centro de una constitución es definir los límites, organización y relaciones entre los poderes del Estado, estableciendo así las bases para los gobiernos. También garantiza los derechos y garantías de las personas y otras organizaciones de la sociedad.',
-  '¡Estamos en camino a una nueva Constitución! El Gobierno ha definido los siguientes pasos: 1) Educación constitucional, 2)Diálogos ciudadanos, 3)Consejo que vele por la validez del proceso, 4)Entrega de bases con las que la presidenta escribirá una nueva constitución, 5) Aprobación de una reforma a la constitución en el congreso, 6)discusión de la nueva constitución y 7) plebiscito de ratificación',
-  '¿Por qué participar en este proceso? ¿cómo hacerlo? Tenemos la posibilidad de decidir sobre los derechos que queremos reconocernos a nosotros mismos como ciudadanos y como sociedad. Podemos ser parte de la definición de las reglas del juego de nuestro país. Entre marzo y octubre de 2016 habrán diálogos comunales, provinciales y regionales a los que estamos todos invitados para ir y dar nuestra opinión. ¡Anda, que otros no definan el país en el que quieres vivir!',
+  'La constitución es la Ley Fundamental del Estado establecida o aceptada como guía para su gobernación; es decir, es la norma jurídica de más alto rango en el ordenamiento político. La constitución pone las reglas de la casa.',
+  'El objeto de una Constitución es definir los límites, organización y relaciones entre los poderes del Estado, estableciendo así las bases para los gobiernos. También garantiza los derechos y garantías de las personas y otras organizaciones de la sociedad.',
+  'El Gobierno ha definido que el proceso constituyente contará de una etapa de educación constitucional, participación individual, encuentros comunales, y cabildos provinciales primero y luego regionales. De aquí saldrán las llamadas “Bases Ciudadanas” que se entregarán a la Presidenta.',
+  'Luego de tener las Bases Ciudadanas, el Gobierno enviará un proyecto de reforma constitucional al Congreso. Será el Congreso el que por sus 2/3 decida el mecanismo por el cual se llegará a la Nueva Constitución.',
   'Sabías que en Chile han existido 10 textos constitucionales? El primero data de 1811 bajo el gobierno de José Miguel Carrera. El último de 1980',
   'Sabías que la Constitución de Chile tiene 133 artículos, mientras que la de EEUU (la única que han tenido en su historia) tiene sólo 7',
-  'La actual Constitución contempla los mecanismos para su propia reforma, a cargo del Congreso, pero en ningún lugar se señala cómo hacer una nueva Constitución. Hay diversas vías para hacerlo: a través del Congreso, comisiones de expertos, asambleas constituyentes, entre otras.',
+  'La actual Constitución contempla los mecanismos para su propia reforma, a cargo del Congreso, pero no señala cómo hacer una nueva Constitución. Hay diversas vías para hacerlo: a través del Congreso, comisiones de expertos, asambleas constituyentes, entre otras.',
   'La Constitución de 1980 es la que ha tenido más reformas en nuestra historia. Hasta 2013 había sido reformada en 33 oportunidades, habiendo reformas en cada uno de los gobiernos en que ha regido.'
 ]
 
