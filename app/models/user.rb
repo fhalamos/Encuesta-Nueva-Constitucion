@@ -47,13 +47,13 @@ class User < ActiveRecord::Base
     friend_list = graph.get_connections('me', 'friends')
     ids = friend_list.map{|f| f['id']}
     User.where(uid: ids).limit(10).map do |u|
-      format_user_info(u)
+      format_user_info(u, false)
     end
 
   end
 
   def get_user_info
-    format_user_info(self)
+    format_user_info(self, true)
   end
 
   def get_results
@@ -62,7 +62,7 @@ class User < ActiveRecord::Base
 
   def get_famous_results
     User.where(famous: true).map do |u|
-      format_user_info(u)
+      format_user_info(u, false)
     end
   end
 
@@ -75,12 +75,13 @@ class User < ActiveRecord::Base
   end
 
   private
-  def format_user_info(user)
+  def format_user_info(user, isSelf)
     {
       score: user.get_score,
       name: user.name,
       image: user.image,
-      famous: user.famous
+      famous: user.famous,
+      self: isSelf
     }
   end
 

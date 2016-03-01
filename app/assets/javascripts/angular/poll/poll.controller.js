@@ -34,8 +34,9 @@
         Poll.resetAnswers(function(response) {
           $scope.pollCompleted = false;
           $scope.currentQuestionIndex = 0;
-          $scope.results = {};
+          $scope.results = [];
           $scope.quadrant = {};
+          $('body').scrollTop(0);
 
         }, function(error) {
           console.log('Failed to reset poll.');
