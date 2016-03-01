@@ -28,6 +28,7 @@
         <div class="postit">
           {{ postits[currentQuestionIndex].content }}
         </div>
+        <div id="hidden-resizer" style="visibility: hidden; width: 180px;"></div>
       </div>
     </div>
     <div class="row" ng-show="pollCompleted" ng-cloak>
@@ -60,6 +61,7 @@
           </div>
         </div>
         <%= render 'layouts/actions' %>
+
       </div>
 
     </div>

@@ -22,6 +22,7 @@
             $scope.loadResults();
           } else {
             $scope.currentQuestionIndex = data.length;
+            $scope.setPostitFontSize();
           }
         });
       });
@@ -30,10 +31,30 @@
         $scope.postits = data;
       });
 
+
+      $scope.setPostitFontSize = function() {
+        var desired_height = 170;
+        var resizer = $("#hidden-resizer");
+        var content = $scope.postits[$scope.currentQuestionIndex].content;
+        var size = 8;
+        if (content.length > 0 && $('.postit').is(':visible')) {
+          resizer.html($scope.postits[$scope.currentQuestionIndex].content);
+          resizer.css("font-size", size);
+          while (resizer.height() < desired_height) {
+            size = parseInt(resizer.css("font-size"), 10);
+            resizer.css("font-size", size + 1);
+          }
+
+          $(".postit").css("font-size", size).html(resizer.html());
+        }
+
+      }
+
       $scope.resetPoll = function() {
         Poll.resetAnswers(function(response) {
           $scope.pollCompleted = false;
           $scope.currentQuestionIndex = 0;
+          $scope.setPostitFontSize();
           $scope.results = [];
           $scope.quadrant = {};
           $('body').scrollTop(0);
@@ -81,9 +102,13 @@
           Poll.answer(answerData, function(result) {
             $scope.currentAnswerId = -1;
             $scope.currentQuestionIndex += 1;
+
             if ($scope.currentQuestionIndex === $scope.questions.length) {
               $scope.pollCompleted = true;
               $scope.loadResults();
+            }
+            else{
+              $scope.setPostitFontSize();
             }
           }, function(error) {
             Materialize.toast('Error de conexión. Inténtalo más tarde.', 3000);
